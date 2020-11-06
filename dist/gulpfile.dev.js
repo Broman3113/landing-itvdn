@@ -12,8 +12,8 @@ var spritesmith = require('gulp.spritesmith');
 
 var rimraf = require('rimraf');
 
-var rename = require("gulp-rename");
-/* ----------- Server ----------- */
+var rename = require('gulp-rename');
+/* -------- Server  -------- */
 
 
 gulp.task('server', function () {
@@ -25,22 +25,21 @@ gulp.task('server', function () {
   });
   gulp.watch('build/**/*').on('change', browserSync.reload);
 });
-/* ----------- gulp-pug ----------- */
+/* ------------ Pug compile ------------- */
 
 gulp.task('templates:compile', function buildHTML() {
   return gulp.src('source/template/index.pug').pipe(pug({
     pretty: true
   })).pipe(gulp.dest('build'));
 });
-/* ----------- Style compiler ----------- */
+/* ------------ Styles compile ------------- */
 
-sass.compiler = require('node-sass');
 gulp.task('styles:compile', function () {
   return gulp.src('source/styles/main.scss').pipe(sass({
     outputStyle: 'compressed'
   }).on('error', sass.logError)).pipe(rename('main.min.css')).pipe(gulp.dest('build/css'));
 });
-/* ----------- Sprite ----------- */
+/* ------------ Sprite ------------- */
 
 gulp.task('sprite', function (cb) {
   var spriteData = gulp.src('source/images/icons/*.png').pipe(spritesmith({
@@ -52,25 +51,25 @@ gulp.task('sprite', function (cb) {
   spriteData.css.pipe(gulp.dest('source/styles/global/'));
   cb();
 });
-/* ----------- Delete ----------- */
+/* ------------ Delete ------------- */
 
 gulp.task('clean', function del(cb) {
   return rimraf('build', cb);
 });
-/* ----------- Copy fonts ----------- */
+/* ------------ Copy fonts ------------- */
 
 gulp.task('copy:fonts', function () {
   return gulp.src('./source/fonts/**/*.*').pipe(gulp.dest('build/fonts'));
 });
-/* ----------- Copy imaged ----------- */
+/* ------------ Copy images ------------- */
 
 gulp.task('copy:images', function () {
   return gulp.src('./source/images/**/*.*').pipe(gulp.dest('build/images'));
 });
-/* ----------- Copy  ----------- */
+/* ------------ Copy ------------- */
 
 gulp.task('copy', gulp.parallel('copy:fonts', 'copy:images'));
-/* ----------- Watcher  ----------- */
+/* ------------ Watchers ------------- */
 
 gulp.task('watch', function () {
   gulp.watch('source/template/**/*.pug', gulp.series('templates:compile'));
