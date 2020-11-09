@@ -3440,30 +3440,30 @@ th {
 
 @font-face {
   font-family: "georgia-bold";
-  src: url("../../fonts/georgia-bold.woff") format("woff"), url("../../fonts/georgia-bold.woff2") format("woff2");
+  src: url("../fonts/georgia-bold.woff") format("woff"), url("../fonts/georgia-bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: "helvetica-neue-bold";
-  src: url("../../fonts/helvetica-neue-bold.woff") format("woff"), url("../../fonts/helvetica-neue-bold.woff2") format("woff2");
+  font-family: "helvatica-neue-bold";
+  src: url("../fonts/helvetica-neue-bold.woff") format("woff"), url("../fonts/helvetica-neue-bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "helvetica-neue-light";
-  src: url("../../fonts/helvetica-neue-light.woff") format("woff"), url("../../fonts/helvetica-neue-light.woff2") format("woff2");
+  src: url("../fonts/helvetica-neue-light.woff") format("woff"), url("../fonts/helvetica-neue-light.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "helvetica-neue-regular";
-  src: url("../../fonts/helvetica-neue-regular.woff") format("woff"), url("../../fonts/helvetica-neue-regular.woff2") format("woff2");
+  src: url("../fonts/helvetica-neue-light.woff") format("woff"), url("../fonts/helvetica-neue-light.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 body {
-  font-family: "helvetica-neua-regular";
+  font-family: "helvetica-neue-regular";
   font-size: 1rem;
   line-height: 1.2;
 }
@@ -3472,7 +3472,7 @@ html {
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
+*, *:before, *:after {
   box-sizing: inherit;
 }
 
@@ -3481,7 +3481,7 @@ ol {
   list-style-type: none;
 }
 
-.clearfix::after {
+.clearfix:after {
   content: "";
   display: table;
   clear: both;
@@ -3490,6 +3490,31 @@ ol {
 .container {
   max-width: 1024px;
   margin: auto;
+}
+
+.icon {
+  margin: auto auto 23px auto;
+}
+
+.icon-like {
+  background-image: url(../images/sprite.png);
+  background-position: -84px 0px;
+  width: 83px;
+  height: 79px;
+}
+
+.icon-book {
+  background-image: url(../images/sprite.png);
+  background-position: 0px -81px;
+  width: 66px;
+  height: 79px;
+}
+
+.icon-message {
+  background-image: url(../images/sprite.png);
+  background-position: 0px 0px;
+  width: 84px;
+  height: 81px;
 }
 
 .button {
@@ -3514,6 +3539,34 @@ ol {
 }
 .button--text-uppercase {
   text-transform: uppercase;
+}
+
+.title {
+  margin-bottom: 65px;
+  text-align: center;
+}
+.title__header {
+  margin: 0;
+  font-size: 2.25rem;
+  font-family: "helvatica-neue-bold";
+  line-height: 1;
+}
+.title__text {
+  font-size: 1.25rem;
+  font-family: "helvetica-neue-light";
+}
+.title--with-bottom-line {
+  position: relative;
+}
+.title--with-bottom-line:after {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  bottom: -16px;
+  width: 47px;
+  height: 5px;
+  background: #424242;
 }
 
 .header__top {
@@ -3563,4 +3616,89 @@ ol {
   border-radius: 3px;
   background-color: #1287bf;
   color: #fff;
+}
+
+.nav {
+  display: inline-block;
+  vert-align: top;
+  padding-top: 7px;
+  margin-right: 15px;
+}
+.nav__link {
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
+  font-family: "helvatica-neue-bold";
+  text-decoration: none;
+  text-transform: capitalize;
+  color: #424242;
+  transition: 0.3s;
+}
+.nav__link:hover, .nav__link--active {
+  color: #de2b24;
+}
+.nav__link:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 5px;
+  height: 5px;
+  margin-left: 15px;
+  border-radius: 50%;
+  background: #424242;
+}
+.nav__link:last-child:after {
+  display: none;
+}
+
+.hero {
+  min-height: 59px;
+  padding: 174px 0;
+  text-align: center;
+  color: #fff;
+  background: #ccc url("../images/hero-bg.jpg") center/cover no-repeat;
+}
+.hero__about {
+  font-family: "helvatica-neue-bold";
+  font-size: 3rem;
+  line-height: 1;
+}
+.hero__title {
+  margin-top: 0;
+  margin-bottom: 27px;
+  font-family: "helvetica-neue-light";
+}
+.hero .button--text-uppercase {
+  padding: 21px 41px;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.about {
+  padding: 99px 0 105px 0;
+  text-align: center;
+}
+.about__list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0 50px;
+}
+.about__item {
+  width: 25%;
+}
+.about__header {
+  margin: 0 0 12px 0;
+  font-size: 1.375rem;
+  font-family: "helvatica-neue-bold";
+  color: #424242;
+}
+.about__description {
+  margin-top: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #5c5c5c;
 }
