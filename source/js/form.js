@@ -12,7 +12,7 @@
       form.classList.remove('is-hidden');
 
       closeButton = document.querySelector('.form__close-button');
-      closeButton.addEventListener('click', onClose)
+      closeButton.addEventListener('click', onClose);
     };
 
     me.close = function() {

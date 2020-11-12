@@ -7,7 +7,13 @@
         openFormButton.addEventListener('click', function(e) {
             e.preventDefault();
             ITVDN.form.open();
-        })
+        });
+        openFormButton.addEventListener('keydown', function(e) {
+            if(e.key === "Escape"){
+                e.preventDefault();
+                ITVDN.form.close();
+            }
+        });
     }
 
     if (form) {
@@ -21,6 +27,7 @@
 
         })
     }
+    
 
     if (nav) {
         nav.addEventListener('click', function(e) {
